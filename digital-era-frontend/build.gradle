@@ -1,0 +1,44 @@
+plugins {
+  id "com.moowork.node" version "0.12"
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'digital-era'
+version = '0.0.1-SNAPSHOT'
+
+description = "digital-era-frontend"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.7'
+}
+
+node {
+  version = '6.8.0'
+  npmVersion = '3.10.8'
+  download = true
+  workDir = file("${project.buildDir}/src/main/frontend/src")
+  nodeModulesDir = file("${project.projectDir}")
+}
+
+/*task build(type: NpmTask) {
+  args = ['run', 'build']
+}*/
+build.dependsOn(npm_install)
+
+jar {
+    from('digital-era-frontend/dist') {
+        //Public is a default supported Spring Boot resources directory.
+        into 'public/static'
+    }
+}
+
+//frontend:build will be run before the processResources
+//processResources.dependsOn(':build')

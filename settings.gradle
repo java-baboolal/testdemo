@@ -1,0 +1,16 @@
+rootProject.name = 'digital-era-parent'
+include ':digital-era-common'
+include ':digital-era-model'
+include ':digital-era-data'
+include ':digital-era-service'
+include ':digital-era-web'
+include ':digital-era-security'
+include ':digital-era-frontend'
+
+project(':digital-era-common').projectDir = "$rootDir/digital-era-common" as File
+project(':digital-era-model').projectDir = "$rootDir/digital-era-model" as File
+project(':digital-era-data').projectDir = "$rootDir/digital-era-data" as File
+project(':digital-era-service').projectDir = "$rootDir/digital-era-service" as File
+project(':digital-era-web').projectDir = "$rootDir/digital-era-web" as File
+project(':digital-era-security').projectDir = "$rootDir/digital-era-security" as File
+project(':digital-era-frontend').projectDir = "$rootDir/digital-era-frontend" as File

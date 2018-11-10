@@ -1,0 +1,27 @@
+velocity.log
+velocity.log.1
+.idea
+*.iml
+/lib
+/nbproject/private/
+cp.compile.properties
+nb.classpath.properties
+nbproject/
+atlassian-ide-plugin.xml
+
+# Eclipse
+.project
+.classpath
+.settings
+bin/
+
+# Gradle
+/.gradle/
+build/
+
+# Emacs
+*~
+
+target/
+node/
+node_modules/

@@ -1,0 +1,27 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.10.RELEASE'
+}
+apply plugin: 'war'
+
+
+
+description = 'digital-era-web'
+dependencies {
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.10.RELEASE'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version:'2.6.1'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version:'2.6.1'
+  compile project(':digital-era-service')
+  compile project(':digital-era-common')
+  compile project(':digital-era-security')
+  
+  
+   	compile("org.springframework.boot:spring-boot-starter-web")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.3'
+}
+springBoot {
+    mainClass = "com.de.Application"
+}
